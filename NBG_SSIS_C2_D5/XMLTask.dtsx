@@ -1,0 +1,286 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/30/2024 11:03:01 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESK"
+  DTS:CreatorName="DESK\Stan"
+  DTS:DTSID="{ED175C48-F484-4A02-B464-FF434B745367}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LocaleID="1032"
+  DTS:ObjectName="XMLTask"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{CBEE2AA9-9EE0-4DEE-AFC1-725CC94E79A0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AllBooks.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{3B9751F5-06C8-4884-B7F1-0155655A531F}"
+      DTS:ObjectName="AllBooks.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\Users\Stan\Desktop\AllBooks.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BooksBase (2).xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{51B6E756-EF2F-49C0-9789-FFFAB7FF60BB}"
+      DTS:ObjectName="BooksBase (2).xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="G:\Stan\Downloads\BooksBase (2).xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BooksCombined.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{33B64769-31F8-4D04-BB82-1651E8D24988}"
+      DTS:ObjectName="BooksCombined.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\Users\Stan\Desktop\BooksCombined.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BooksCombined.xml 1]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{8E5FDC91-B3F7-4A16-BB32-84F84F9632EB}"
+      DTS:ObjectName="BooksCombined.xml 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Stan\Desktop\BooksCombined.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BooksSupplemental (2).xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{5B7A14A8-97B2-4887-ABC3-F135C6FA0829}"
+      DTS:ObjectName="BooksSupplemental (2).xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="G:\Stan\Downloads\BooksSupplemental (2).xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DiffGram.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{B4F2BE4E-70EC-4F88-8449-7DAF15BF40A0}"
+      DTS:ObjectName="DiffGram.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\Users\Stan\Desktop\DiffGram.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DiffGram.xml 1]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{8B641F42-3BE3-4485-BC73-2E98B0525F53}"
+      DTS:ObjectName="DiffGram.xml 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Stan\Desktop\DiffGram.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DiffOutput.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{AAD9F374-2EAA-4963-8BE0-F528849E6D2F}"
+      DTS:ObjectName="DiffOutput.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\Users\Stan\Desktop\DiffOutput.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Diff"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="XML Task"
+      DTS:DTSID="{AB452D80-1ADD-42E4-A2BC-676B5E1084A5}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Diff"
+      DTS:TaskContact="XML Task; Microsoft Corporation; SQL Server 2022; � 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          Source="BooksBase (2).xml"
+          SecondOperandType="FileConnection"
+          SecondOperand="BooksSupplemental (2).xml"
+          SaveOperationResult="True"
+          Destination="DiffOutput.xml"
+          SaveDiffGram="True"
+          DiffGramDestination="DiffGram.xml" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Merge"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="XML Task"
+      DTS:DTSID="{89CF59C0-04C2-4BEF-BD59-D95B17B7A87F}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Merge"
+      DTS:TaskContact="XML Task; Microsoft Corporation; SQL Server 2022; � 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          OperationType="Merge"
+          Source="BooksBase (2).xml"
+          SecondOperandType="FileConnection"
+          SecondOperand="BooksCombined.xml 1"
+          SaveOperationResult="True"
+          Destination="AllBooks.xml"
+          XPathStringSource="/catalog" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Patch"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="XML Task"
+      DTS:DTSID="{2080499A-8F99-4466-93A2-FB072EF42736}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Patch"
+      DTS:TaskContact="XML Task; Microsoft Corporation; SQL Server 2022; � 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          OperationType="Patch"
+          Source="BooksBase (2).xml"
+          SecondOperandType="FileConnection"
+          SecondOperand="DiffGram.xml 1"
+          SaveOperationResult="True"
+          Destination="BooksCombined.xml" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{96725364-BB8B-47F9-9BFC-53204ADC3417}"
+      DTS:From="Package\Diff"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Patch" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{5DA60B83-5BB3-4FA4-8AD3-F9B9EB712762}"
+      DTS:From="Package\Patch"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Merge" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="95.2,41.6"
+          Id="Package\Diff"
+          TopLeft="130.714285992542,93.2941175652829" />
+        <NodeLayout
+          Size="104,41.6"
+          Id="Package\Patch"
+          TopLeft="183.571428962204,173.588235141961" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="178.314285992542,134.894117565283">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57.2571429696618,38.694117576678"
+              Start="0,0"
+              End="57.2571429696618,31.194117576678">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.347058788339" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.347058788339"
+                    Point2="0,19.347058788339"
+                    Point3="4,19.347058788339" />
+                  <mssgle:LineSegment
+                    End="53.2571429696618,19.347058788339" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.2571429696618,19.347058788339"
+                    Point2="57.2571429696618,19.347058788339"
+                    Point3="57.2571429696618,23.347058788339" />
+                  <mssgle:LineSegment
+                    End="57.2571429696618,31.194117576678" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="107.2,41.6"
+          Id="Package\Merge"
+          TopLeft="247.857143384766,253.882352718639" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="235.571428962204,215.188235141961">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="65.8857144225618,38.6941175766779"
+              Start="0,0"
+              End="65.8857144225618,31.1941175766779">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.3470587883389" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.3470587883389"
+                    Point2="0,19.3470587883389"
+                    Point3="4,19.3470587883389" />
+                  <mssgle:LineSegment
+                    End="61.8857144225618,19.3470587883389" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.8857144225618,19.3470587883389"
+                    Point2="65.8857144225618,19.3470587883389"
+                    Point3="65.8857144225618,23.3470587883389" />
+                  <mssgle:LineSegment
+                    End="65.8857144225618,31.1941175766779" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
